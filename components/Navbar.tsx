@@ -22,6 +22,7 @@ export default async function Navbar() {
                     </Link>
 
                     <MainNav data={categories}/>
+                    
                     <NavbarActions />
                 </div>
             </Container>

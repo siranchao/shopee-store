@@ -5,13 +5,13 @@ export const formatter = new Intl.NumberFormat("en-US", {
 })
 
 interface CurrencyProps {
-    value: string | number
+    value?: string | number
 }
 
 export default function Currency({ value }: CurrencyProps) {
     
     return (
-        <div className="">
+        <div className="font-semibold">
             {formatter.format(Number(value))}
         </div>
     )

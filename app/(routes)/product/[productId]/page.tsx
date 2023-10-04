@@ -4,6 +4,7 @@ import ProductList from "@/components/ProductList"
 import Container from "@/components/ui/Container"
 import Gallery from "@/components/gallery"
 import Info from "@/components/Info"
+import { getSizesByCategory } from "@/actions/get-sizes"
 
 interface ProductDetailProps {
     params: {
@@ -14,10 +15,11 @@ interface ProductDetailProps {
 export default async function ProductDetail({ params }: ProductDetailProps) {
     const product = await getProduct(params.productId)
 
+    const sizes = await getSizesByCategory(product?.category?.id)
+
     const suggestedProducts = await getProducts({
         categoryId: product?.category?.id,
     })
-
 
     return (
         <>
@@ -28,7 +30,7 @@ export default async function ProductDetail({ params }: ProductDetailProps) {
                             <Gallery images={product?.images} />
 
                             <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-                                <Info data={product}/>
+                                <Info data={product} sizes={sizes} />
                             </div>
                         </div>
                         <hr className="my-10"/>

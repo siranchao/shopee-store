@@ -5,8 +5,8 @@ import { getBillboard } from "@/actions/get-billboards"
 import { getProducts } from "@/actions/get-products"
 
 export default async function HomePage() {
-    const billboard = await getBillboard("d546cd2f-9bdc-4539-a672-0a21906f70c4")
-    const products = await getProducts({isFeatured: "true"})
+    const billboard = await getBillboard("6913a40e-f6c3-4b53-9563-09d9796954d1")
+    const products = await getProducts({})
 
     return (
         <>

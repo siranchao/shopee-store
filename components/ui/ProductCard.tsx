@@ -20,7 +20,7 @@ export default function ProductCard({ data }: ProductCardProps) {
 
     return (
         <>
-            <div className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4" onClick={handleClick}>
+            <div className="bg-white relative group cursor-pointer rounded-xl border p-3 space-y-4" onClick={handleClick}>
                 <div className="aspect-square rounded-xl bg-gray-100 relative">
                     <Image 
                         src={data?.images?.[0]?.url}
@@ -42,7 +42,7 @@ export default function ProductCard({ data }: ProductCardProps) {
                     </div>
                 </div>
 
-                <div>
+                <div className="pb-6">
                     <p className="font-semibold text-lg">
                         {data?.name}
                     </p>
@@ -51,21 +51,24 @@ export default function ProductCard({ data }: ProductCardProps) {
                     </p>
                 </div>
 
-                {data?.isFeatured ? (
-                    <div className="flex items-baseline justify-start gap-2">
-                        <div className="flex items-center justify-between text-lg text-red-500">
-                            <Currency value={(Number(data?.price) * 0.8).toFixed(2)}/>
-                        </div>
+                <div className="absolute bottom-0 py-2">
+                    {data?.isFeatured ? (
+                        <div className="flex items-baseline justify-start gap-2">
+                            <div className="flex items-center justify-between text-lg text-red-500">
+                                <Currency value={(Number(data?.price) * 0.8).toFixed(2)}/>
+                            </div>
 
-                        <div className="flex items-center justify-between text-sm line-through">
+                            <div className="flex items-center justify-between text-sm line-through">
+                                <Currency value={data?.price}/>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="flex items-center justify-between">
                             <Currency value={data?.price}/>
                         </div>
-                    </div>
-                ) : (
-                    <div className="flex items-center justify-between">
-                        <Currency value={data?.price}/>
-                    </div>
-                )}
+                    )}
+                </div>
+
 
             </div>
         </>

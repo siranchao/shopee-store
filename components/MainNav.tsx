@@ -11,7 +11,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
 const components: { title: string; href: string; description: string }[] = [
@@ -59,7 +58,7 @@ export function NavigationMenuDemo() {
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Components</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                    <ul className="grid w-[250px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                         {components.map((component) => (
                         <ListItem
                             key={component.title}
@@ -130,7 +129,7 @@ export default function MainNav({ data }: MainNavProps) {
                             <NavigationMenuItem>
                                 <NavigationMenuTrigger>Shop Now</NavigationMenuTrigger>
                                 <NavigationMenuContent>
-                                <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                                <ul className="grid gap-3 p-4 w-[250px] md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                                     <li className="row-span-3">
                                     <NavigationMenuLink asChild>
                                         <a
@@ -164,11 +163,11 @@ export default function MainNav({ data }: MainNavProps) {
                     </NavigationMenu>
                 </div>
 
-                <div className="visible lg:invisible">
+                <div className="lg:hidden">
                     <NavigationMenuDemo/>
                 </div>
 
-                <div className="mx-6 flex flex-wrap items-center space-x-4 lg:space-x-6 invisible lg:visible">
+                <div className="mx-4 flex flex-wrap items-center space-x-4 lg:space-x-6 max-lg:hidden">
                     {routes.map((route) => (
                         <Link 
                             href={route.href} 

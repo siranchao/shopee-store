@@ -3,14 +3,26 @@ import { Product, Size } from "@/types"
 import Currency from "./ui/Currency"
 import Button from "./ui/Button"
 import { ShoppingCart } from "lucide-react"
+import { getSizesByCategory } from "@/actions/get-sizes"
+
+import { useState, useEffect } from "react"
 
 interface InfoProps {
     data: Product
-    sizes: Size[]
 }
 
-export default function Info({ data, sizes }: InfoProps) {
+export default function Info({ data }: InfoProps) {
+    const [sizes, setSizes] = useState<Size[]>([])
 
+    useEffect(() => {
+        getSizesByCategory(data?.category?.id)
+        .then(sizes => {
+            setSizes(sizes)
+        })
+        .catch(error => {
+            console.error(error)
+        })
+    }, [data?.category?.id])
 
     return (
         <div>
@@ -30,9 +42,9 @@ export default function Info({ data, sizes }: InfoProps) {
                     </div>
 
                 ) : (
-                    <p className="text-2xl text-gray-900">
+                    <div className="text-2xl text-gray-900">
                         <Currency value={data?.price}/>
-                    </p>
+                    </div>
                 )}
 
             </div>
@@ -42,7 +54,7 @@ export default function Info({ data, sizes }: InfoProps) {
             <div className="flex flex-col gap-y-4">
                 <div className="flex items-center gap-x-4">
                     <h3 className="font-semibold text-black">Size:</h3>
-                    {sizes.map((size) => (
+                    {sizes?.map((size) => (
                         <div key={size.id}>{size.name}</div>
                     ))}
                 </div>

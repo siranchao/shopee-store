@@ -9,8 +9,8 @@ import Footer from '@/components/Footer'
 const font = Urbanist({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Shopee - Store',
-  description: 'Shopee Store Template',
+  title: 'Shopee: E-commerce Template Site',
+  description: 'Shopee, E-commerce template store',
 }
 
 export default function RootLayout({

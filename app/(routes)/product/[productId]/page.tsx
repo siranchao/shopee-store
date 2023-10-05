@@ -12,6 +12,14 @@ interface ProductDetailProps {
     }
 }
 
+export async function generateMetadata( { params }: ProductDetailProps) {
+    const res = await getProduct(params.productId)
+    return {
+        title: res.name,
+        description: `Shopee Store - product name: ${res.name}`
+    }
+}
+
 export default async function ProductDetail({ params }: ProductDetailProps) {
     const product = await getProduct(params.productId)
 

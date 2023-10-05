@@ -19,6 +19,15 @@ interface CategoryPageProps {
     }
 }
 
+export async function generateMetadata( { params, searchParams }: CategoryPageProps) {
+    const res = await getCategory(params.categoryId)
+    return {
+        title: `Shopee | ${res.name}`,
+        description: `Shopee Store - category: ${res.name}`
+    }
+}
+
+
 export default async function CategoryPage({ params, searchParams }: CategoryPageProps) {
 
     const products = await getProducts({

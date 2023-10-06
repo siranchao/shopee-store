@@ -4,8 +4,11 @@ import Currency from "./ui/Currency"
 import Button from "./ui/Button"
 import { ShoppingCart } from "lucide-react"
 import { getSizesByCategory } from "@/actions/get-sizes"
+import QtySelector from "./ui/QtySelector"
 
 import { useState, useEffect } from "react"
+import useCart from "@/hooks/use-cart"
+
 
 interface InfoProps {
     data: Product
@@ -13,6 +16,23 @@ interface InfoProps {
 
 export default function Info({ data }: InfoProps) {
     const [sizes, setSizes] = useState<Size[]>([])
+    const [qty, setQty] = useState<number>(1)
+    //global state
+    const cart = useCart()
+
+    const handleIncrease = () => {
+        setQty(prev => prev + 1)
+    }
+
+    const handleDecrease = () => {
+        if(qty > 1) {
+            setQty(prev => prev - 1)
+        }
+    }
+
+    const addToCart = () => {
+        cart.addToCart({product: data, size: sizes[0], quantity: qty})
+    }
 
     useEffect(() => {
         getSizesByCategory(data?.category?.id)
@@ -66,19 +86,19 @@ export default function Info({ data }: InfoProps) {
                 </div>
 
                 <div className="flex items-center gap-x-4">
-                    <h3 className="font-semibold text-black">Category:</h3>
-                    <div>{data?.category?.name}</div>
-                    
+                    <h3 className="font-semibold text-black">Quantity:</h3>
+                    <div>
+                        <QtySelector qty={qty} handleIncrease={handleIncrease} handleDecrease={handleDecrease} />
+                    </div>
                 </div>
             </div>
 
             <div className="mt-10 flex items-center gap-x-3">
-                <Button className="flex items-center gap-x-2">
+                <Button className="flex items-center gap-x-2" onClick={addToCart}>
                     Add To Card
                     <ShoppingCart />
                 </Button>
             </div>
-
         </div>
     )
 }

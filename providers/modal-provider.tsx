@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from "react";
 import PreviewModal from "@/components/PreviewModal";
+import SimplePreviewModal from "@/components/SimplePreviewModal";
 
 export default function ModalProvider() {
     const [isMounted, setIsMounted] = useState(false)
@@ -17,6 +18,7 @@ export default function ModalProvider() {
     return (
         <>
             <PreviewModal />
+            <SimplePreviewModal />
         </>
     )
 }

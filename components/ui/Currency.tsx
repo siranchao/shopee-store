@@ -6,12 +6,13 @@ export const formatter = new Intl.NumberFormat("en-US", {
 
 interface CurrencyProps {
     value?: string | number
+    className?: string
 }
 
-export default function Currency({ value }: CurrencyProps) {
+export default function Currency({ value, className = 'font-semibold' }: CurrencyProps) {
     
     return (
-        <div className="font-semibold">
+        <div className={className}>
             {formatter.format(Number(value))}
         </div>
     )

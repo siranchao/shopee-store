@@ -5,6 +5,8 @@ import Button from "./ui/Button"
 import { ShoppingCart } from "lucide-react"
 import { getSizesByCategory } from "@/actions/get-sizes"
 import QtySelector from "./ui/QtySelector"
+import SizeSelector from "./ui/SizeSelector"
+import { toast } from "react-hot-toast"
 
 import { useState, useEffect } from "react"
 import useCart from "@/hooks/use-cart"
@@ -17,6 +19,8 @@ interface InfoProps {
 export default function Info({ data }: InfoProps) {
     const [sizes, setSizes] = useState<Size[]>([])
     const [qty, setQty] = useState<number>(1)
+    const [size, setSize] = useState<Size | null>(null)
+
     //global state
     const cart = useCart()
 
@@ -30,8 +34,16 @@ export default function Info({ data }: InfoProps) {
         }
     }
 
+    const selectSize = (size: Size) => {
+        setSize(size)
+    }
+
     const addToCart = () => {
-        cart.addToCart({product: data, size: sizes[0], quantity: qty})
+        if(size) {
+            cart.addToCart({product: data, size: size, quantity: qty})
+        } else {
+            toast.error("Please select size")
+        }
     }
 
     useEffect(() => {
@@ -74,9 +86,7 @@ export default function Info({ data }: InfoProps) {
             <div className="flex flex-col gap-y-4">
                 <div className="flex items-center gap-x-4">
                     <h3 className="font-semibold text-black">Size:</h3>
-                    {sizes?.map((size) => (
-                        <div key={size.id}>{size.name}</div>
-                    ))}
+                    <SizeSelector sizes={sizes} handleSelect={selectSize}/>
                 </div>
 
                 <div className="flex items-center gap-x-4">

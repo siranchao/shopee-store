@@ -1,7 +1,7 @@
 .quantity-picker {
     display: inline-block;
     border:1px solid #dfdfdf;
-    border-radius: 4px;
+    border-radius: 3px;
     vertical-align:middle;
   }
   .quantity-input:focus {
@@ -18,8 +18,8 @@
   }
   
   .quantity-modifier {
-    height: 2rem;
-    width: 2rem;
+    height: 1.5rem;
+    width: 1.5rem;
     font-size: 1rem;
     background: #f3f3f3;
     color: #888;
@@ -37,7 +37,7 @@
   }
   
   .left-modifier {
-    border-radius: 4px 0 0 4px;
+    border-radius: 3px 0 0 3px;
   }
   
   .mod-disable {
@@ -50,12 +50,12 @@
   }
   
   .right-modifier {
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 3px 3px 0;
   }
   
   .quantity-display {
-    width: 2.5rem;
-    font-size: 1rem;
+    width: 2rem;
+    font-size: 14px;
     border: 0;
     border-top: 0 solid #dbdbdb;
     border-bottom: 0 solid #dbdbdb;

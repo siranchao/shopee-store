@@ -18,14 +18,10 @@ const useCart = create(
         addToCart: (data) => {
             //ok
             const items = get().items
-            const item = items.find(item => item.product.id === data.product.id)
+            const item = items.find(item => item.id === data.id)
             if (item) {
-                if(item.size.id === data.size.id) {
-                    item.quantity += data.quantity
-                    set({ items: items })
-                } else {
-                    set({ items: [...items, data] })
-                }
+                item.quantity += data.quantity
+                set({ items: items })
             }
             else {
                 set({ items: [...items, data] })
@@ -35,7 +31,7 @@ const useCart = create(
         },
         removeFromCart: (id) => {
             //ok
-            const newItems = get().items.filter(item => item.product.id !== id)
+            const newItems = get().items.filter(item => item.id !== id)
             set({ items: newItems })
             toast.success("Item removed from cart")
         },
@@ -47,7 +43,7 @@ const useCart = create(
         increaseQty: (id) => {
             //ok
             const currentItems = get().items
-            const targetItem = currentItems.find(item => item.product.id === id)
+            const targetItem = currentItems.find(item => item.id === id)
             if(targetItem) {
                 targetItem.quantity += 1
                 set({ items: currentItems })
@@ -56,7 +52,7 @@ const useCart = create(
         decreaseQty: (id) => {
             //ok
             const currentItems = get().items
-            const targetItem = currentItems.find(item => item.product.id === id)
+            const targetItem = currentItems.find(item => item.id === id)
             if(targetItem && targetItem.quantity > 1) {
                 targetItem.quantity -= 1
                 set({ items: currentItems })

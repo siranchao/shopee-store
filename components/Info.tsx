@@ -40,7 +40,7 @@ export default function Info({ data }: InfoProps) {
 
     const addToCart = () => {
         if(size) {
-            cart.addToCart({product: data, size: size, quantity: qty})
+            cart.addToCart({id: data.id + size.id, product: data, size: size, quantity: qty})
         } else {
             toast.error("Please select size")
         }

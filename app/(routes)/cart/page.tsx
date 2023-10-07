@@ -29,6 +29,11 @@ export default function CartPage() {
         setActionCount(prev => prev + 1)
     }
 
+    const handleRemoveAll = () => {
+        cart.removeAll()
+        setActionCount(prev => prev + 1)
+    }
+
     useEffect(() => {
        setMounted(true) 
     }, [])
@@ -61,7 +66,7 @@ export default function CartPage() {
                                         <div className='flex justify-end mt-4'>
                                             <Button 
                                                 className='bg-white rounded-md border border-red-500 text-red-500 px-2 py-1'
-                                                onClick={() => cart.removeAll()}
+                                                onClick={handleRemoveAll}
                                             >
                                                 Empty Cart
                                             </Button>

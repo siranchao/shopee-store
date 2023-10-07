@@ -22,6 +22,11 @@ export default function Summary({ orderItems }: SummaryProps) {
     const shippingCost = totalPrice > 200 ? 10 : 0
 
     const onCheckout = async () => {
+        if (orderItems.length === 0) {
+            toast.error('Your cart is empty')
+            return
+        }
+
         try {
             const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, { orderItems })
                     

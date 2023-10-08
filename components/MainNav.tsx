@@ -1,6 +1,7 @@
 'use client'
 import * as React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Category } from "@/types"
@@ -96,13 +97,11 @@ export default function MainNav({ data }: MainNavProps) {
                                             className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                                             href="/"
                                             >
-                                            {/* <Icons.logo className="h-6 w-6" /> */}
-                                            <div className="mb-2 mt-4 text-lg font-medium">
-                                                Shopee
-                                            </div>
-                                            <p className="text-sm leading-tight text-muted-foreground">
-                                            An open-source platform to make e-commerce easy and simple.
-                                            </p>
+                                                <Image src="/logo4.png" alt="logo" width={400} height={400} className="object-contain" />
+                            
+                                                <div className="mb-2 mt-4 font-medium text-sm text-muted-foreground">
+                                                    <span className="text-lg pr-1">Shopee</span> is an open-source platform provides small business with simple and easy e-commerce solution.
+                                                </div>
                                             </a>
                                         </NavigationMenuLink>
                                     </li>

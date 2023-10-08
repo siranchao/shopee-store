@@ -39,8 +39,8 @@ export default function Footer() {
             <footer className="flex flex-col text-back-100 mt-8 border-t border-gray-100 bg-gray-200">
                 <div className="flex max-md:flex-col flex-wrap justify-between gap-4 sm:px-16 px-4 py-10">
 
-                    <div className="flex flex-col justify-start items-start gap-6 max-md:hidden md:w-1/3 lg:flex-1">
-                        {/* <Image src="/logo.svg" alt="logo" width={118} height={18} className="object-contain"/> */}
+                    <div className="flex flex-col justify-start items-start gap-4 max-md:hidden md:w-1/3 lg:flex-1">
+                        <Image src="/logo3.png" alt="logo" width={100} height={100} className="object-contain"/>
                         <p className="text-base text-gray-700">Shopee 2023 <br/> All rights reserved &copy;</p>
                     </div>
 
@@ -71,16 +71,3 @@ export default function Footer() {
         </>
     )
 }
-
-
-// export default function Footer() {
-//     return (
-//         <footer className="bg-white border-t">
-//             <div className="mx-auto py-10">
-//                 <p className="text-center text-sx text-black">
-//                     &copy; 2023 ShopeeTech, Inc. All rights reserved.
-//                 </p>
-//             </div>
-//         </footer>
-//     )
-// }

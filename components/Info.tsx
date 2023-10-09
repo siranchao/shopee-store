@@ -2,7 +2,7 @@
 import { Product, Size } from "@/types"
 import Currency from "./ui/Currency"
 import Button from "./ui/Button"
-import { ShoppingCart } from "lucide-react"
+import { ShoppingCart, TruckIcon } from "lucide-react"
 import { getSizesByCategory } from "@/actions/get-sizes"
 import QtySelector from "./ui/QtySelector"
 import SizeSelector from "./ui/SizeSelector"
@@ -23,6 +23,15 @@ export default function Info({ data }: InfoProps) {
 
     //global state
     const cart = useCart()
+
+    const calcDiscount = () => {
+        let discount = 1.0
+        if(data.isFeatured) discount -= 0.2
+        if(data.category.name === "On Sale") discount -= 0.3
+        return discount
+    }
+
+    const discount = calcDiscount()
 
     const handleIncrease = () => {
         setQty(prev => prev + 1)
@@ -60,16 +69,16 @@ export default function Info({ data }: InfoProps) {
         <div>
             <h1 className="text-3xl font-bold text-gray-900">{data.name}</h1>
             <div className="mt-3 flex items-center justify-between">
-                {data?.isFeatured ? (
+                {discount !== 1 ? (
                     <div className="flex items-baseline gap-4">
                         <div className="text-2xl text-red-500">
-                            <Currency value={(Number(data?.price) * 0.8).toFixed(2)}/>
+                            <Currency value={(Number(data?.price) * discount).toFixed(2)}/>
                         </div>
                         <div className="text-gray-900 text-md line-through">
                             <Currency value={data?.price}/>
                         </div>
                         <div className="text-green-600 text-sm font-semibold tracking-tight">
-                            Limited Time Offer: 20% OFF
+                            Limited Time Offer: {((1 - discount) * 100).toFixed(0)}% Off
                         </div>
                     </div>
 
@@ -103,11 +112,28 @@ export default function Info({ data }: InfoProps) {
                 </div>
             </div>
 
-            <div className="mt-10 flex items-center gap-x-3">
+            <InfoBox />
+
+            <div className="mt-8 flex items-center gap-x-3">
                 <Button className="flex items-center gap-x-2" onClick={addToCart}>
                     Add To Card
                     <ShoppingCart />
                 </Button>
+            </div>
+        </div>
+    )
+}
+
+
+const InfoBox = () => {
+
+    return (
+        <div className="w-[400px] border border-gray-300 bg-gray-100 rounded-none p-2 flex gap-2 mt-8 lg:w-4/5">
+            <div className="w-[60px] flex justify-center items-start">
+                <TruckIcon />
+            </div>
+            <div className="text-gray-800 text-sm">
+                <span className="font-semibold text-md underline">FREE SHIPPING</span> on orders over $49 with an Shopee Membership or orders over $100
             </div>
         </div>
     )

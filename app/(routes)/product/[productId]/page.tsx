@@ -23,9 +23,11 @@ export async function generateMetadata( { params }: ProductDetailProps) {
 export default async function ProductDetail({ params }: ProductDetailProps) {
     const product = await getProduct(params.productId)
 
-    const suggestedProducts = await getProducts({
+    const products = await getProducts({
         categoryId: product?.category?.id,
     })
+
+    const suggestedProducts = products.filter((product) => product.id !== params.productId)
 
     return (
         <>

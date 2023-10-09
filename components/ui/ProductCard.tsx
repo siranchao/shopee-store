@@ -20,6 +20,15 @@ export default function ProductCard({ data }: ProductCardProps) {
     const previewModal = usePreviewModal()
     const simplePreviewModal = useSimplePreviewModal()
 
+    const calcDiscount = () => {
+        let discount = 1.0
+        if(data.isFeatured) discount -= 0.2
+        if(data.category.name === "On Sale") discount -= 0.3
+        return discount
+    }
+
+    const discount = calcDiscount()
+
     const handleClick = () => {
         router.push(`/product/${data?.id}`)
     }
@@ -68,10 +77,10 @@ export default function ProductCard({ data }: ProductCardProps) {
                 </div>
 
                 <div className="absolute bottom-0 py-2">
-                    {data?.isFeatured ? (
+                    {discount !== 1 ? (
                         <div className="flex items-baseline justify-start gap-2">
                             <div className="flex items-center justify-between text-lg text-red-500">
-                                <Currency value={(Number(data?.price) * 0.8).toFixed(2)}/>
+                                <Currency value={(Number(data?.price) * discount).toFixed(2)}/>
                             </div>
 
                             <div className="flex items-center justify-between text-sm line-through">

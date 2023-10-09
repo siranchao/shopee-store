@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import { Separator } from "./ui/separator";
 
 const footerLinks = [
     {
@@ -56,7 +57,9 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="flex justify-between mt-4 border-t border-gray-300 sm:px-16 px-6 py-10 ">
+                <Separator className="w-11/12 m-auto h-[1px] bg-gray-300 "/>
+
+                <div className="flex justify-between sm:px-16 px-6 py-10 ">
                         <div className="flex-1 flex flex-col lg:flex-row gap-2">
                             <p>@2023 Shoppe Inc.</p>
                             <p>All Rights Reservered</p>

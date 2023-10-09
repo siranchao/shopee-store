@@ -7,6 +7,7 @@ interface Query {
     categoryId?: string
     colorId?: string
     isFeatured?: "true" | "false"
+    isOnSale?: "true" | "false"
 }
 
 // add {cache: 'no-store'} make this request not to be cached by Next.js

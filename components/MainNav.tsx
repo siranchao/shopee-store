@@ -67,9 +67,6 @@ const ListItem = React.forwardRef<React.ElementRef<"a">,React.ComponentPropsWith
 ListItem.displayName = "ListItem"
 
 
-
-
-
 export default function MainNav({ data }: MainNavProps) {
 
     const pathName = usePathname()

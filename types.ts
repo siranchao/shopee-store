@@ -18,6 +18,7 @@ export interface Product {
     price: string
     category: Category
     isFeatured: boolean
+    isOnSale: boolean
     color: Color
     images: Image[]
 }

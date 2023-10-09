@@ -22,8 +22,8 @@ export default function ProductCard({ data }: ProductCardProps) {
 
     const calcDiscount = () => {
         let discount = 1.0
-        if(data.isFeatured) discount -= 0.2
-        if(data.category.name === "On Sale") discount -= 0.3
+        if(data.isOnSale) discount -= 0.2
+        if(data.category.name === "Clearance") discount -= 0.3
         return discount
     }
 

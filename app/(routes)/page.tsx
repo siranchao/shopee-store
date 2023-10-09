@@ -9,7 +9,7 @@ export default async function HomePage() {
     const billboard_secondary = await getBillboard(process.env.NEXT_PUBLIC_SECOND_BILLBOARD!)
 
     const products_primary = await getProducts({isFeatured: "true"})
-    const products_secondary = await getProducts({categoryId: process.env.NEXT_PUBLIC_SECOND_CATEGORY_ID})
+    const products_secondary = await getProducts({isOnSale: "true"})
 
     return (
         <>

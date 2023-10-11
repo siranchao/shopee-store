@@ -47,7 +47,7 @@ export default function Footer() {
 
                     <div className="flex-1 grid grid-cols-3 gap-10">
                         {footerLinks.map((link, index) => (
-                            <div key={index} className="flex flex-col gap-4 text-base min-w-[170px]">
+                            <div key={index} className="flex flex-col gap-2 text-base sm:gap-4">
                                 <h3 className="font-bold">{link.title}</h3>
                                 {link.links.map((item, index) => (
                                     <Link key={index} href={item.url} className="text-gray-500">{item.title}</Link>

@@ -80,7 +80,7 @@ export default function MainNav({ data }: MainNavProps) {
 
     return (
         <>
-            <nav className="flex mx-4 items-center">
+            <nav className="flex items-center sm:mx-4">
                 <div>
                     <NavigationMenu>
                         <NavigationMenuList>

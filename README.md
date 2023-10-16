@@ -1,4 +1,4 @@
-# About Shoppe-Admin
+# About Shoppe-Store
 
 Shopee is an open-source platform aim to help small businesses to engage e-commerce more efficiently. The project has two separate parts: Shoppe-Admin, a web-based admin dashboard & CMS tool; and Shoppe-Store, a simple e-commerce shop template.
 

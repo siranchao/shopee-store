@@ -1,6 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# About Shoppe-Admin
+
+Shopee is an open-source platform aim to help small businesses to engage e-commerce more efficiently. The project has two separate parts: Shoppe-Admin, a web-based admin dashboard & CMS tool; and Shoppe-Store, a simple e-commerce shop template.
+
+## :rocket: Objective
+
+- Shoppe-Store is a web-based e-commerce shop template designed to work together with Shoppe-Store
+- This project proives a simple and easy-to-use e-commerce client-side template, ideal for small businesses/startups
+- Use zustand as state management library and shadcn/ui as UI library, ceated a fully functional and customizable web application
+- This project aiming to practice full-stack development using lastest technologies and frameworks
+
+## :hammer: Built With
+
+The project was built with the main coding stack: TypeScript + React + Next.js + Tailwind + Zustand + shadcn/ui + Stripe
+
+[![React](https://img.shields.io/badge/React-%2361DAFB.svg?&style=for-the-badge&logo=React&logoColor=white)]()
+[![Next.js](https://img.shields.io/badge/next.js-%23663399.svg?&style=for-the-badge&logo=Next.js&logoColor=white)]()
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-%23339933.svg?&style=for-the-badge&logo=TailwindCSS&logoColor=white)]()
+
+## :pencil: Project Details and Demo
+
+For more details, product features or demo video of Shoppe-Admin, please visit my personal site at [https://www.siran.dev/projects/shopee](https://github.com/siran-ecommerce/shopee-admin)
 
 ## Getting Started
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
@@ -10,8 +33,6 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

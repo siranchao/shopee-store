@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import PreviewModal from "@/components/PreviewModal";
 import SimplePreviewModal from "@/components/SimplePreviewModal";
+import LoginModal from "@/components/LoginModal";
 
 export default function ModalProvider() {
     const [isMounted, setIsMounted] = useState(false)
@@ -19,6 +20,7 @@ export default function ModalProvider() {
         <>
             <PreviewModal />
             <SimplePreviewModal />
+            <LoginModal />
         </>
     )
 }

@@ -3,7 +3,7 @@ import { getProducts } from "@/actions/get-products"
 import ProductList from "@/components/ProductList"
 import Container from "@/components/ui/Container"
 import Gallery from "@/components/gallery"
-import Info from "@/components/Info"
+import FullInfo from "@/components/FullProductInfo"
 
 
 interface ProductDetailProps {
@@ -38,7 +38,7 @@ export default async function ProductDetail({ params }: ProductDetailProps) {
                             <Gallery images={product?.images} />
 
                             <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-                                <Info data={product} />
+                                <FullInfo data={product} />
                             </div>
                         </div>
                         <hr className="my-10"/>

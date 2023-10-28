@@ -13,6 +13,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
+import useLoginModal from "@/hooks/use-login"
 
 
 interface MainNavProps {
@@ -76,7 +77,11 @@ export default function MainNav({ data }: MainNavProps) {
         active: pathName === `/category/${route.id}`
     }))
 
-    
+    const loginModal = useLoginModal()
+
+    const onLogin = () => {
+        loginModal.onOpen()
+    }
 
     return (
         <>
@@ -102,13 +107,13 @@ export default function MainNav({ data }: MainNavProps) {
                                             </a>
                                         </NavigationMenuLink>
                                     </li>
-                                    <ListItem href="https://github.com/siranchao/shopee-store" title="About Us">
+                                    <ListItem href="https://github.com/siranchao/shopee-store" title="About Us" target="_blank">
                                         Learn more about our open-source code solution
                                     </ListItem>
-                                    <ListItem href={`${process.env.NEXT_PUBLIC_ADMIN_URL}`} title="Admin Center">
+                                    <ListItem href={`${process.env.NEXT_PUBLIC_ADMIN_URL}`} title="Admin Center" target="_blank">
                                         Visit admin center to manage your store
                                     </ListItem>
-                                    <ListItem href="#" title="Membership">
+                                    <ListItem onClick={onLogin} title="Shopee Membership" >
                                         Join Shopee Membership to get more benefits and discounts
                                     </ListItem>
                                 </ul>
